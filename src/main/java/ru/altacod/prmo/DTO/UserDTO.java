@@ -1,26 +1,11 @@
-package ru.altacod.prmo.model;
+package ru.altacod.prmo.DTO;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDTO {
     private Long userId;
-
-    @Column(nullable = false, unique = true)
     private String username;
-
-    @Column(nullable = false)
     private String password;
-
-    @Column(nullable = false)
     private String role;
-
-    @Column(nullable = false)
     private Long departmentId;
-
 
     public Long getUserId() {
         return userId;
@@ -61,5 +46,6 @@ public class User {
     public void setDepartmentId(Long departmentId) {
         this.departmentId = departmentId;
     }
+    
 }
 
