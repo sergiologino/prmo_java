@@ -17,7 +17,8 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(requests -> requests
-                                .requestMatchers("/public/**").permitAll() // URL-адреса, доступные без аутентификации
+//                                .requestMatchers("/public/**").permitAll()
+                                .requestMatchers("/users/**").permitAll()// URL-адреса, доступные без аутентификации
                                 .anyRequest().authenticated() // Все остальные URL-адреса требуют аутентификации
                 )
                 .formLogin(formLogin ->
@@ -36,6 +37,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 }
